@@ -1,0 +1,11 @@
+sfThrift plugin
+======================
+
+A simple Apache Thrift plugin. Base for other Thrift plugins.
+
+Installation
+------------
+
+  * Install the plugin
+
+        $ symfony plugin:install -s alpha sfThriftPlugin
