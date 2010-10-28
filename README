@@ -1,11 +1,19 @@
-sfThrift plugin
-======================
+# sfThrift plugin #
 
 A simple Apache Thrift plugin. Base for other Thrift plugins.
 
-Installation
-------------
+## Installation ##
 
   * Install the plugin
 
-        $ symfony plugin:install -s alpha sfThriftPlugin
+        $ symfony plugin:install sfThriftPlugin
+
+## Use ##
+
+  * Generate files
+
+        $ thrift --gen php example.thrift
+
+  * Remove `require ...` lines from generated files
+
+  * Add generated files to project lib directory
