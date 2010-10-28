@@ -29,21 +29,6 @@
  */
 
 /**
- * Protocol exceptions
- */
-class TProtocolException extends TException {
-  const UNKNOWN = 0;
-  const INVALID_DATA = 1;
-  const NEGATIVE_SIZE = 2;
-  const SIZE_LIMIT = 3;
-  const BAD_VERSION = 4;
-
-  function __construct($message=null, $code=0) {
-    parent::__construct($message, $code);
-  }
-}
-
-/**
  * Protocol base class module.
  */
 abstract class TProtocol {
@@ -359,16 +344,4 @@ abstract class TProtocol {
       return 0;
     }
   }
-}
-
-/**
- * Protocol factory creates protocol objects from transports
- */
-interface TProtocolFactory {
-  /**
-   * Build a protocol from the base transport
-   *
-   * @return TProtocol protocol
-   */
-  public function getProtocol($trans);
 }
