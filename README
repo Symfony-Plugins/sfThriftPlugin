@@ -8,12 +8,33 @@ A simple Apache Thrift plugin. Base for other Thrift plugins.
 
         $ symfony plugin:install sfThriftPlugin
 
+## Configuration ##
+
+  * Configuration is in app.yml:
+
+        all:
+          thrift_plugin:
+            default:
+              connector:
+                class: TSocket
+                param:
+                  host: 127.0.0.1
+                  port: 9090
+              transport:
+                class: TBufferedTransport
+              protocol:
+                class: TBinaryProtocol
+
 ## Use ##
 
   * Generate files
 
         $ thrift --gen php example.thrift
 
-  * Remove `require ...` lines from generated files
+  * Copy those generated files to your project lib directory
 
-  * Add generated files to project lib directory
+  * Remove `include ...` lines from generated files
+
+  * Create a client object:
+
+        $service = new example_serviceClient(ThriftProtocolFactory::factory());
