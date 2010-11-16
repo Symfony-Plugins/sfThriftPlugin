@@ -25,6 +25,53 @@ A simple Apache Thrift plugin. Base for other Thrift plugins.
               protocol:
                 class: TBinaryProtocol
 
+### Connectors ###
+
+  * **THttpClient** HTTP client
+    * **host _[required]_** The host to connect to
+    * **port _[optional, default: 80]_** The port to connect on
+    * **uri _[optional, default: '']_** The URI to request
+    * **scheme _[optional, default: 'http']_** The scheme to use for the request, i.e. http, https
+    * **timeout _[optional, default: null]_** Read timeout
+  * TMemoryBuffer
+    * buf [optional, default: '']
+  * TPhpStream
+    * mode [required]
+  * TServerSocket
+    * host [optional, default: 'localhost']
+    * port [optional: default: 9090]
+  * TSocket
+    * host [optional, default: 'localhost']
+    * port [optional: default: 9090]
+    * persist [optional, default: false]
+    * send_timeout [optional, default: 100]
+    * recv_timeout [optional, default: 750]
+  * TSocketPool
+    * hosts [optional, default: array('localhost')]
+    * ports [optional: default: array(9090)]
+    * persist [optional, default: false]
+    * send_timeout [optional, default: 100]
+    * recv_timeout [optional, default: 750]
+
+### Transports ###
+
+  * TBufferedTransport
+    * read_buf_size [optional, default: 512]
+    * write_buf_size [optional, default: 512]
+  * TFramedTransport
+    * read [optional, default: false]
+    * write [optional, default: false]
+  * TNullTransport
+
+### Protocols ###
+
+  * TBinaryProtocol
+    * strict_read [optional, default: false]
+    * strict_write [optional, default: true]
+  * TBinaryProtocolAccelerated
+    * strict_read [optional, default: false]
+    * strict_write [optional, default: true]
+
 ## Use ##
 
   * Generate files
