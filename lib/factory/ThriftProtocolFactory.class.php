@@ -107,7 +107,7 @@ final class ThriftProtocolFactory {
 				$send_timeout = isset($param['send_timeout']) ? $param['send_timeout'] : 100;
 				$recv_timeout = isset($param['recv_timeout']) ? $param['recv_timeout'] : 750;
 
-				$connector = new TSocket($host, $port, $persist);
+				$connector = new TSocketPool($hosts, $ports, $persist);
 				$connector->setSendTimeout($send_timeout);
 				$connector->setRecvTimeout($recv_timeout);
 
