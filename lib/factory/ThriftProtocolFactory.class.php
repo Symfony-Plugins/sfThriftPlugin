@@ -11,18 +11,18 @@ final class ThriftProtocolFactory {
 
 	/**
 	 * Create a TProtocol object for specific config params.
-	 * @param string $configPostfix Config postfix
+	 * @param string $profile Config profile
 	 * @return TProtocol TProtocol object
 	 * @final
 	 */
-	public static final function factory($configPostfix = 'default') {
-		$config = sfConfig::get('app_thrift_plugin_'.$configPostfix);
+	public static final function factory($profile = 'default') {
+		$config = sfConfig::get('app_thrift_plugin_'.$profile);
 		if(
 			empty($config['connector']) ||
 			empty($config['transport']) ||
 			empty($config['protocol'])
 		) {
-			throw new Exception("Bad Thrift $configPostfix config");
+			throw new Exception("Bad Thrift $profile config");
 		}
 
 		$connector = self::getConnector($config['connector']);
