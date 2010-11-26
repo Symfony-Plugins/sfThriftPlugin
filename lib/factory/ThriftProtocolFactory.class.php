@@ -76,14 +76,6 @@ final class ThriftProtocolFactory {
 
 				$parameters = sprintf('mode = %d', $mode);
 				break;
-			case 'TServerSocket':
-				$host = isset($param['host']) ? $param['host'] : 'localhost';
-				$port = isset($param['port']) ? $param['port'] : 9090;
-
-				$connector = new TServerSocket($host, $port);
-
-				$parameters = sprintf('host = "%s", port = %d', $host, $port);
-				break;
 			case 'TSocket':
 				$host = isset($param['host']) ? $param['host'] : 'localhost';
 				$port = isset($param['port']) ? $param['port'] : 9090;
