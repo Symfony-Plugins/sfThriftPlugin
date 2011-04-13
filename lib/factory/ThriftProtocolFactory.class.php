@@ -26,6 +26,8 @@ final class ThriftProtocolFactory {
 		}
 
 		$connector = self::getConnector($config['connector']);
+		if ($connector->isOpen())
+			$connector->close();
 		$connector->open();
 		$transport = self::getTransport($config['transport'], $connector);
 
