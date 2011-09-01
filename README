@@ -1,6 +1,6 @@
 # sfThrift plugin #
 
-A simple Apache Thrift plugin. Base for other Thrift plugins.
+A simple [Apache Thrift](http://incubator.apache.org/thrift/) plugin. Base for other Thrift plugins.
 
 ## Installation ##
 
@@ -33,44 +33,44 @@ A simple Apache Thrift plugin. Base for other Thrift plugins.
     * **uri _[optional, default: '']_** The URI to request
     * **scheme _[optional, default: 'http']_** The scheme to use for the request, i.e. http, https
     * **timeout _[optional, default: null]_** Read timeout
-  * TMemoryBuffer
-    * buf [optional, default: '']
-  * TPhpStream
-    * mode [required]
-  * TServerSocket
-    * host [optional, default: 'localhost']
-    * port [optional: default: 9090]
-  * TSocket
-    * host [optional, default: 'localhost']
-    * port [optional: default: 9090]
-    * persist [optional, default: false]
-    * send_timeout [optional, default: 100]
-    * recv_timeout [optional, default: 750]
-  * TSocketPool
-    * hosts [optional, default: array('localhost')]
-    * ports [optional: default: array(9090)]
-    * persist [optional, default: false]
-    * send_timeout [optional, default: 100]
-    * recv_timeout [optional, default: 750]
+  * **TMemoryBuffer** A memory buffer is a tranpsort that simply reads from and writes to an in-memory string buffer. Anytime you call write on it, the data is simply placed into a buffer, and anytime you call read, data is read from that buffer.
+    * **buf _[optional, default: '']_** Initial buffer value
+  * **TPhpStream** Php stream transport. Reads to and writes from the php standard streams php://input and php://output
+    * **mode _[required]_**
+  * **TServerSocket**
+    * **host _[optional, default: 'localhost']_** Host to listen on
+    * **port _[optional: default: 9090]_** Port to listen on
+  * **TSocket**
+    * **host _[optional, default: 'localhost']_** Remote hostname
+    * **port _[optional: default: 9090]_** Remote port
+    * **persist _[optional, default: false]_** Whether to use a persistent socket
+    * **send_timeout _[optional, default: 100]_** Send timeout in milliseconds
+    * **recv_timeout _[optional, default: 750]_** Recv timeout in milliseconds
+  * **TSocketPool**
+    * **hosts _[optional, default: array('localhost')]_** List of remote hostnames
+    * **ports _[optional default: array(9090)]_** List of remote ports, or a single common port
+    * **persist _[optional, default: false]_** Whether to use a persistent socket
+    * **send_timeout _[optional, default: 100]_** Send timeout in milliseconds
+    * **recv_timeout _[optional, default: 750]_** Recv timeout in milliseconds
 
 ### Transports ###
 
-  * TBufferedTransport
-    * read_buf_size [optional, default: 512]
-    * write_buf_size [optional, default: 512]
-  * TFramedTransport
-    * read [optional, default: false]
-    * write [optional, default: false]
-  * TNullTransport
+  * **TBufferedTransport** Buffered transport. Stores data to an internal buffer that it doesn't actually write out until flush is called. For reading, we do a greedy read and then serve data out of the internal buffer.
+    * **read_buf_size _[optional, default: 512]_** The receive buffer size
+    * **write_buf_size _[optional, default: 512]_** The write buffer size
+  * **TFramedTransport** Framed transport. Writes and reads data in chunks that are stamped with their length.
+    * **read _[optional, default: false]_** Buffer for read data.
+    * **write _[optional, default: false]_** Buffer for queued output data
+  * **TNullTransport** Transport that only accepts writes and ignores them. This is useful for measuring the serialized size of structures.
 
 ### Protocols ###
 
-  * TBinaryProtocol
-    * strict_read [optional, default: false]
-    * strict_write [optional, default: true]
-  * TBinaryProtocolAccelerated
-    * strict_read [optional, default: false]
-    * strict_write [optional, default: true]
+  * **TBinaryProtocol**
+    * **strict_read _[optional, default: false]_**
+    * **strict_write _[optional, default: true]_**
+  * **TBinaryProtocolAccelerated**
+    * **strict_read _[optional, default: false]_**
+    * **strict_write _[optional, default: true]_**
 
 ## Use ##
 
