@@ -156,7 +156,7 @@ final class ThriftProtocolFactory {
 			case 'TNullTransport':
 				$transport = new TNullTransport();
 
-				$parameters = '';
+				$parameters = 'NONE';
 				break;
 			default:
 				throw new Exception('Unknown transport: '.$class);
@@ -201,6 +201,10 @@ final class ThriftProtocolFactory {
 					$strictWrite ? 'true' : 'false'
 				);
 				break;
+			case 'TCompactProtocol':
+				$protocol = new TCompactProtocol($transport);
+				
+				$parameters = 'NONE';
 			default:
 				throw new Exception('Unknown protocol: '.$class);
 		}

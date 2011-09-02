@@ -110,6 +110,8 @@ A simple [Apache Thrift](http://incubator.apache.org/thrift/) plugin. Base for o
 
  * **TBinaryProtocol**
 
+   Binary protocol.
+
    _Params:_
 
     * **strict_read _[optional, default: false]_**
@@ -117,10 +119,16 @@ A simple [Apache Thrift](http://incubator.apache.org/thrift/) plugin. Base for o
 
  * **TBinaryProtocolAccelerated**
 
+   Accelerated binary protocol.
+
    _Params:_
 
     * **strict_read _[optional, default: false]_**
     * **strict_write _[optional, default: true]_**
+
+ * **TCompactProtocol**
+
+   Compact protocol.
 
 ## Use
 
